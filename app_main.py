@@ -1,16 +1,18 @@
 import streamlit as st
 import numpy as np
-import pickle
+import joblib
 
+# Load the model once
 try:
-    with open("case_study_emp.pkl", "rb") as f:
-        clf = pickle.load(f)
+    clf = joblib.load("case_study_emp.pkl")
 except Exception as e:
     st.error(f"Error loading model: {e}")
 
+def predict(data):
+    return clf.predict(data)
 
 st.title("Case Study On Employee-Attration-Rate-main ")
-st.markdown("Let's Predic the rate")
+st.markdown("Let's Predict the rate")
 
 st.header("")
 col1, col2 = st.columns(2)
@@ -30,10 +32,3 @@ if st.button("Chance To Get Admission"):
     result = predict(input_data)
     # Display result
     st.text(f"Admission Chance: {result[0]}")
-
-
-
-
-
-
-
