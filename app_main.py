@@ -2,12 +2,12 @@ import streamlit as st
 import numpy as np
 import pickle
 
-# Load the model once
-with open("case_study_emp.pkl", "rb") as f:
-    clf = pickle.load(f)
+try:
+    with open("case_study_emp.pkl", "rb") as f:
+        clf = pickle.load(f)
+except Exception as e:
+    st.error(f"Error loading model: {e}")
 
-def predict(data):
-    return clf.predict(data)
 
 st.title("Case Study On Employee-Attration-Rate-main ")
 st.markdown("Let's Predic the rate")
