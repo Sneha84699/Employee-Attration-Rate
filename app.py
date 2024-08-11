@@ -35,4 +35,4 @@ if st.button("Predict Performance Rate"):
     result = clf.predict(
         np.array([[el,tos,top,gr,gr1,1,1,1,1,1,0]]))
     st.text(result[0])
-st.markdown("Developed by Rashmi")
+st.markdown("Developed by Sneha Varli")
